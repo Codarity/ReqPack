@@ -27,8 +27,8 @@ bool Manager::callFunction(sol::function func, const std::vector<std::string>& a
 
 
 bool Manager::init() {
-	this->luaState.open_libraries(sol::lib::base, sol::lib::package, sol::lib::string, sol::lib::table, sol::lib::math);
-	sol::protected_function_result res = this->luaState.script_file(this->packageBasePath + this->packageManagerPath + ".lua");
+	this->luaState.open_libraries(sol::lib::base, sol::lib::package, sol::lib::string, sol::lib::table, sol::lib::math, sol::lib::os);
+	sol::protected_function_result res = this->luaState.script_file(this->packageManagerPath);
 
 	if (!res.valid()) {
 		sol::error err = res;

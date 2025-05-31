@@ -15,7 +15,6 @@ private:
 	sol::table wrapper;
 
 	bool isFunction(const sol::object& obj);
-	void setPackageBasePath(const std::string& path);
 	bool callFunction(sol::function func);
 	bool callFunction(sol::function func, const std::string& arg);
 	bool callFunction(sol::function func, const std::vector<std::string>& args);
@@ -25,6 +24,7 @@ public:
 	Manager(const std::string& packageManagerPath);
 	~Manager();
 	bool init();
+	void setPackageBasePath(const std::string& path);
 	bool install(const std::vector<std::string> packageNames);
 	bool remove(const std::vector<std::string> packageNames);
 	bool update(const std::vector<std::string> packageNames);
